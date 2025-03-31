@@ -35,7 +35,7 @@ export function FoodDialog() {
                                 Fluffy pancakes stacked with fruits, cream, syrup, and powdered sugar.
                             </DialogDescription>
                         </DialogHeader>
-                        <div className="flex justify-between items-center mt-26">
+                        <div className="flex justify-between items-center min-sm:mt-26">
                             <div>
                                 <p>Total price</p>
                                 <p className="font-semibold">$12.99</p>

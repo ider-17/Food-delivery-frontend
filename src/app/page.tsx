@@ -18,7 +18,7 @@ export default function Home() {
         <p className="text-white font-semibold mb-4 min-sm:ml-10">Categories</p>
         <div className="flex">
           {/* <ChevronLeft color="#FFFFFF" className="mt-1" /> */}
-          <div className="flex gap-2 items-center overflow-x-auto whitespace-nowrap pb-4">
+          <div className="flex gap-2 items-center overflow-x-auto whitespace-nowrap pb-4 px-10">
 
             <button className="bg-[#EF4444] text-white py-1 px-3 rounded-2xl">Appetizers</button>
             <button className="bg-white py-1 px-3 rounded-2xl">Salads</button>
@@ -85,6 +85,7 @@ export default function Home() {
       </div>
 
       <Footer />
+
     </div >
   );
 }
