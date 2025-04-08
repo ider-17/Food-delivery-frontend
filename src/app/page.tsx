@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
 import { FoodDialog } from "@/components/FoodDialog";
+import FoodList from "./_components/FoodList";
 
 
 export default function Home() {
@@ -35,7 +36,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-10 px-4 min-sm:px-22">
+      <FoodList />
+
+      {/* <div className="py-10 px-4 min-sm:px-22">
         <p className="text-white font-semibold mb-4">Appetizers</p>
         <div className="flex flex-col gap-8 sm:grid-cols-2 min-sm:grid min-lg:grid-cols-3 min-md:grid-rows-2 min-sm:gap-9 w-full">
 
@@ -84,7 +87,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+      <Footer /> */}
 
     </div >
   );
