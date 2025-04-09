@@ -45,7 +45,7 @@ const FoodList = async () => {
                         md:grid-col-3">
                             {category.foods.map((food) => {
                                 return (
-                                    <div key={food._id} className="w-[90%] sm:w-[48%] md:w-[31%]">
+                                    <div key={food._id} className="w-[90%] sm:w-[48%] md:w-[32%]">
                                         <Dialog>
                                             <DialogTrigger asChild>
                                                 <div className="bg-white p-4 rounded-[20px]">
@@ -54,8 +54,8 @@ const FoodList = async () => {
                                                         <Button className="bg-white text-[#EF4444] rounded-full absolute bottom-[5%] right-[5%] w-11 h-11 hover:bg-[#EF4444] hover:text-white" variant="secondary">+</Button>
                                                     </div>
                                                     <div className="flex justify-between mt-5">
-                                                        <p className="text-[#EF4444] font-semibold">Finger food</p>
-                                                        <p>$12.99</p>
+                                                        <p className="text-[#EF4444] font-semibold">{food.foodName}</p>
+                                                        <p>{food.price}</p>
                                                     </div>
                                                     <p className="mt-2">Fluffy pancakes stacked with fruits, cream, syrup, and powdered sugar.</p>
                                                 </div>
