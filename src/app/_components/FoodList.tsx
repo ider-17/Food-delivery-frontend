@@ -9,6 +9,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Minus, Plus } from "lucide-react";
 
 
 type FoodType = {
@@ -16,6 +17,7 @@ type FoodType = {
     foodName: string;
     category: string;
     price: number;
+    description: string;
 };
 
 type CategoryType = {
@@ -56,9 +58,9 @@ const FoodList = async () => {
                                                     </div>
                                                     <div className="flex justify-between mt-5">
                                                         <p className="text-[#EF4444] font-semibold">{food.foodName}</p>
-                                                        <p>{food.price}</p>
+                                                        <p className="text-black font-semibold">{`${food.price}₮`}</p>
                                                     </div>
-                                                    <p className="mt-2">Fluffy pancakes stacked with fruits, cream, syrup, and powdered sugar.</p>
+                                                    <p className="mt-2 text-black">{food.description}</p>
                                                 </div>
                                             </DialogTrigger>
                                             <DialogContent className="w-[80%] min-sm:max-w-[425px]">
@@ -76,10 +78,10 @@ const FoodList = async () => {
                                                                 <p>Total price</p>
                                                                 <p className="font-semibold">$12.99</p>
                                                             </div>
-                                                            <div className="flex gap-2">
-                                                                <button className="w-7 h-7 rounded-full border flex justify-center items-center">-</button>
+                                                            <div className="flex gap-2 items-center">
+                                                                <Minus className="border rounded-full p-1" />
                                                                 <p>1</p>
-                                                                <button className="w-7 h-7 rounded-full border flex justify-center items-center">+</button>
+                                                                <Plus className="border rounded-full p-1" />
                                                             </div>
                                                         </div>
                                                         <DialogFooter className="w-full flex items-end sm:justify-center mt-4">

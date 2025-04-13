@@ -1,6 +1,7 @@
 import { ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 
@@ -10,10 +11,12 @@ export default function LogInPage() {
       <div className="grid grid-cols-3 w-full h-screen">
         <div className="flex justify-center items-center">
 
-          <div>
-            <button className="shadow w-8 h-8 rounded-sm flex justify-center items-center border border-gray-100 mb-4">
-              <ChevronLeft className="p-1" />
-            </button>
+          <div className="w-[260px] h-[268px]">
+            <Link href="/">
+              <button className="shadow w-8 h-8 rounded-sm flex justify-center items-center border border-gray-100 mb-4 cursor-pointer">
+                <ChevronLeft className="p-1" />
+              </button>
+            </Link>
             <h6 className="mb-2 text-2xl font-semibold">Create your account</h6>
             <p className="mb-3">Sign up to explore your favorite dishes.</p>
             <Input className="mb-3" />
