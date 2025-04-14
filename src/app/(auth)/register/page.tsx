@@ -71,3 +71,5 @@ export default function SignUpPage() {
 //         <img className="h-screen" src="./bicycle.svg"></img>
 //     </div>
 // </div>
+
+// jdsfkljla
