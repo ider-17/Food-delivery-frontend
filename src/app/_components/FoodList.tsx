@@ -36,7 +36,7 @@ const FoodList = async () => {
         },
     });
     const { categories } = await response.json();
-    console.log(categories)
+    // console.log(categories)
 
     return (
         <div className="text-white">
@@ -44,7 +44,7 @@ const FoodList = async () => {
                 return (
                     <div key={category._id} className="py-10 px-4 min-sm:px-22">
                         <p className="text-white font-semibold mb-4">{category.name}</p>
-                        <div className="w-full flex flex-wrap gap-4 justify-center sm:grid-col-2
+                        <div className="w-full flex flex-wrap gap-4 sm:grid-col-2
                         md:grid-col-3">
                             {category.foods.map((food) => {
                                 return (
