@@ -16,27 +16,27 @@ export default function Footer() {
                 <div className="min-sm:mr-18">
                     <img src="footer-logo.svg" />
                 </div>
-                <div>
+                <div className="[&>*]:text-white">
                     <p className="text-gray-500">NOMNOM</p>
-                    <p className="text-white">Home</p>
-                    <p className="text-white">Contact us</p>
-                    <p className="text-white">Delivery zone</p>
+                    <p>Home</p>
+                    <p>Contact us</p>
+                    <p>Delivery zone</p>
                 </div>
-                <div>
+                <div className="[&>*]:text-white">
                     <p className="text-gray-500">MENU</p>
-                    <p className="text-white">Appetizers</p>
-                    <p className="text-white">Salads</p>
-                    <p className="text-white">Pizzas</p>
-                    <p className="text-white">Lunch favorites</p>
-                    <p className="text-white">Main dishes</p>
+                    <p>Appetizers</p>
+                    <p>Salads</p>
+                    <p>Pizzas</p>
+                    <p>Lunch favorites</p>
+                    <p>Main dishes</p>
                 </div>
-                <div>
+                <div className="[&>*]:text-white">
                     <p className="text-gray-500">MENU</p>
-                    <p className="text-white">Side dish</p>
-                    <p className="text-white">Brunch</p>
-                    <p className="text-white">Desserts</p>
-                    <p className="text-white">Beverages</p>
-                    <p className="text-white">Fish & Sea foods</p>
+                    <p>Side dish</p>
+                    <p>Brunch</p>
+                    <p>Desserts</p>
+                    <p>Beverages</p>
+                    <p>Fish & Sea foods</p>
                 </div>
                 <div>
                     <p className="text-gray-500">MENU</p>
@@ -51,7 +51,7 @@ export default function Footer() {
                 <div className="flex gap-2">
                     <p>Copy right 2024 </p>
                     <Copyright />
-                    <p>Nomnom LLC</p>
+                    <p className="ml-2">Nomnom LLC</p>
                 </div>
                 <p>Privacy policy</p>
                 <p>Terms and condition</p>

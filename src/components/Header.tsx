@@ -10,10 +10,10 @@ export default function Header() {
         </div>
       </Link>
       <div className="flex gap-3">
-        <Link href="/auth/register">
+        <Link href="/register">
           <Button className="rounded-3xl hover:bg-[#EF4444] hover:text-white border-0 cursor-pointer" variant="outline">Sign up</Button>
         </Link>
-        <Link href="/auth/login">
+        <Link href="/login">
           <Button className="rounded-3xl bg-[#EF4444] border-0 text-white cursor-pointer" variant="outline">Log in</Button>
         </Link>
       </div>

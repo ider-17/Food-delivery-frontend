@@ -53,7 +53,7 @@ const FoodList = async () => {
                                             <DialogTrigger asChild>
                                                 <div className="bg-white p-4 rounded-[20px]">
                                                     <div className="relative h-fit">
-                                                        <img className="w-full rounded-sm object-cover h-[200px] min-sm:h-[250px]" src="./finger-food.svg" />
+                                                        <img className="w-full rounded-sm object-cover h-[200px]" src="./finger-food.svg" />
                                                         <Button className="bg-white text-[#EF4444] rounded-full absolute bottom-[5%] right-[5%] w-11 h-11 hover:bg-[#EF4444] hover:text-white" variant="secondary">+</Button>
                                                     </div>
                                                     <div className="flex justify-between mt-5">

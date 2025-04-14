@@ -18,17 +18,17 @@ export default function Home() {
         <p className="text-white font-semibold mb-4 min-sm:ml-10">Categories</p>
         <div className="flex">
           {/* <ChevronLeft color="#FFFFFF" className="mt-1" /> */}
-          <div className="flex gap-2 items-center overflow-x-auto whitespace-nowrap pb-4 px-10">
+          <div className="flex gap-2 items-center overflow-x-auto whitespace-nowrap pb-4 px-10 [&>*]:bg-white [&>*]:py-1 [&>*]:px-3 [&>*]:rounded-2xl">
 
-            <button className="bg-[#EF4444] text-white py-1 px-3 rounded-2xl">Appetizers</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Salads</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Pizzas</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Lunch favorites</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Main dishes</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Fish * Sea foods</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Side dish</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Brunch</button>
-            <button className="bg-white py-1 px-3 rounded-2xl">Desserts</button>
+            <button className="text-white !bg-[#EF4444]">Appetizers</button>
+            <button>Salads</button>
+            <button>Pizzas</button>
+            <button>Lunch favorites</button>
+            <button>Main dishes</button>
+            <button>Fish * Sea foods</button>
+            <button>Side dish</button>
+            <button>Brunch</button>
+            <button>Desserts</button>
 
           </div>
           {/* <ChevronRight color="#FFFFFF" className="mt-1" /> */}
