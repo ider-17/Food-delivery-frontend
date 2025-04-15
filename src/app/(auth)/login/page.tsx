@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -7,14 +8,14 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { BASE_URL } from "@/constants";
+import { useState } from "react";
 
 
 
 export default function LoginPage() {
 
-  const createUser = async () => {
-
-  };
+  const [error, setError] = useState("");
 
   const formSchema = z.object({
     email: z.string().min(2).max(50),
@@ -29,15 +30,21 @@ export default function LoginPage() {
     }
   });
 
-  const onSubmit = (val) => {
-    console.log(form)
+  const onSubmit = async (val) => {
+    try {
+      const user = await axios.post(`${BASE_URL}/auth/login`, val);
+
+      console.log(user)
+    } catch (error) {
+      setError(error.response.data.error);
+    }
   }
 
   return (
     <div className="grid grid-cols-3 w-full h-screen">
       <div className="flex justify-center items-center">
 
-        <div className="w-[260px] h-[268px]">
+        <div className="w-[270px] h-fit">
           <a href="/">
             <button className="shadow w-8 h-8 rounded-sm flex justify-center items-center border border-gray-100 mb-4 cursor-pointer">
               <ChevronLeft className="p-1" />
@@ -74,6 +81,7 @@ export default function LoginPage() {
               />
 
               <Button className="font-normal p-0 m-0" variant="link" type="button">Forgot password ?</Button>
+              {error && <p className="text-red-500">{error}</p>}
               <Button className="bg-black text-white w-full mt-6" variant="outline" type="submit">Let's Go</Button>
             </form>
           </Form>
