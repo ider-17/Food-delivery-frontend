@@ -10,10 +10,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BASE_URL } from "@/constants";
 import { useState } from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
 
 
 
 export default function LoginPage() {
+
+  const router = useRouter()
 
   const [error, setError] = useState("");
 
@@ -33,25 +38,37 @@ export default function LoginPage() {
   const onSubmit = async (val) => {
     try {
       const user = await axios.post(`${BASE_URL}/auth/login`, val);
-
       console.log(user)
+      if (user) {
+        toast("Event has been created.");
+      }
+
+      const decodedToken = jwtDecode(user.data.token);
+
+      if (decodedToken.user.role == "ADMIN") {
+        router.push("/admin")
+        return
+      } else {
+        router.push("/");
+      }
+
     } catch (error) {
       setError(error.response.data.error);
     }
   }
 
   return (
-    <div className="grid grid-cols-3 w-full h-screen">
-      <div className="flex justify-center items-center">
+    <div className="flex justify-between w-full h-screen">
+      <div className="w-[40%] flex justify-center items-center">
 
-        <div className="w-[270px] h-fit">
-          <a href="/">
-            <button className="shadow w-8 h-8 rounded-sm flex justify-center items-center border border-gray-100 mb-4 cursor-pointer">
-              <ChevronLeft className="p-1" />
-            </button>
-          </a>
-          <h6 className="mb-1 text-2xl font-semibold">Log in</h6>
-          <p className="mb-6 text-gray-400">Log in to enjoy your favorite dishes.</p>
+        <div className="w-[260px] h-fit">
+          <div className="w-fit h-fit">
+            <a href="/">
+              <ChevronLeft className="p-2 border rounded-sm border-gray-100 mb-4 shadow cursor-pointer" size={35} />
+            </a>
+          </div>
+          <h6 className="mb-1 text-2xl font-semibold">Login</h6>
+          <p className="mb-6 text-gray-400">Sign up to explore your favorite dishes.</p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
@@ -60,7 +77,7 @@ export default function LoginPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Enter your email..." className="mb-4" {...field} />
+                      <Input placeholder="Enter your email..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -73,7 +90,7 @@ export default function LoginPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Password" type="password" className="mb-4" {...field} />
+                      <Input placeholder="Password" type="password" className="mb-4 mt-4" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -85,59 +102,17 @@ export default function LoginPage() {
               <Button className="bg-black text-white w-full mt-6" variant="outline" type="submit">Let's Go</Button>
             </form>
           </Form>
-          <div className="flex gap-1 justify-self-center">
-            <Button className="text-gray-500 font-normal p-0 m-0 mr-3" variant="link">Don't have an account?</Button>
-            <Button className="text-blue-500 font-normal p-0 m-0" variant="link">Sign up</Button>
+          <div className="flex gap-3 justify-self-center">
+            <Button className="text-gray-500 font-normal p-0 m-0" variant="link">Already have an account?</Button>
+            <Button className="text-blue-500 font-normal p-0 m-0" variant="link">Log in</Button>
           </div>
         </div>
 
       </div>
 
-      <div className="col-span-2 h-screen">
-        <img className="h-screen" src="./bicycle.svg"></img>
+      <div className="h-screen w-[70%]">
+        <img className="h-full justify-self-end w-full" src="./bicycle.svg"></img>
       </div>
     </div>
   );
 };
-
-
-
-// import { ChevronLeft } from "lucide-react";
-// import { Input } from "@/components/ui/input";
-// import { Button } from "@/components/ui/button";
-// import Link from "next/link";
-
-
-
-// export default function LoginPage() {
-//   return (
-//     <div>
-
-//     </div>
-//   );
-// }
-
-
-{/* <div className="grid grid-cols-3 w-full h-screen">
-        <div className="flex justify-center items-center">
-
-          <div className="w-[260px] h-fit">
-            <Link href="/">
-              <button className="shadow w-8 h-8 rounded-sm flex justify-center items-center border border-gray-100 mb-4 cursor-pointer">
-                <ChevronLeft className="p-1" />
-              </button>
-            </Link>
-            <h6 className="mb-2 text-2xl font-semibold">Log in</h6>
-            <p className="mb-3 text-gray-500">Log in to enjoy your favorite dishes.</p>
-            <Input className="mb-3" placeholder="Enter your email address" />
-            <Input className="mb-3" placeholder="Password" />
-            <Link className="underline" href="/login">Forgot your password?</Link>
-            <Button className="bg-black text-white w-full mt-3" variant="outline">Let's Go</Button>
-          </div>
-
-        </div>
-
-        <div className="col-span-2 h-screen">
-          <img className="h-screen" src="./bicycle.svg"></img>
-        </div>
-      </div> */}

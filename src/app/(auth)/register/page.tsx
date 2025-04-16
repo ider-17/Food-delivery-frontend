@@ -10,10 +10,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BASE_URL } from "@/constants";
 import { useState } from "react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 
 
 export default function RegisterPage() {
+
+    const router = useRouter()
 
     const [error, setError] = useState("");
 
@@ -34,7 +38,11 @@ export default function RegisterPage() {
         try {
             const user = await axios.post(`${BASE_URL}/auth/register`, val);
 
-            console.log(user)
+            if (user) {
+                toast("Event has been created.");
+                router.push("/login");
+            }
+
         } catch (error) {
             setError(error.response.data.error);
         }
@@ -67,20 +75,20 @@ export default function RegisterPage() {
                                 )}
                             />
 
-                            {/* <FormField
+                            <FormField
                                 control={form.control}
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder="Password" type="password" className="mb-4" {...field} />
+                                            <Input placeholder="Password" type="password" className="mb-4 mt-4" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
-                            /> */}
+                            />
 
-                            {/* <Button className="font-normal p-0 m-0" variant="link" type="button">Forgot password ?</Button> */}
+                            <Button className="font-normal p-0 m-0" variant="link" type="button">Forgot password ?</Button>
                             {error && <p className="text-red-500">{error}</p>}
                             <Button className="bg-black text-white w-full mt-6" variant="outline" type="submit">Let's Go</Button>
                         </form>
