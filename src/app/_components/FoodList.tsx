@@ -118,3 +118,20 @@ const FoodList = async () => {
 };
 
 export default FoodList;
+
+
+// useEffect(() => {
+//     async function fetchData() {
+//         try {
+//             const response = await fetch(`${BASE_URL}/categories/with-foods`, {
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//             });
+//         } catch (error) {
+//             console.log(error.message)
+//         }
+//     };
+
+//     fetchData()
+// }, []);
