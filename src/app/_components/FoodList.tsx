@@ -1,3 +1,4 @@
+"use client"
 import { BASE_URL } from "@/constants";
 import {
     Dialog,
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus } from "lucide-react";
+import { useEffect, useState } from "react";
 
 
 type FoodType = {
@@ -28,15 +30,25 @@ type CategoryType = {
     _id: string;
 }
 
-const FoodList = async () => {
-    console.log(process.env.BASE_URL)
-    const response = await fetch(`${BASE_URL}/categories/with-foods`, {
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
-    const { categories } = await response.json();
-    // console.log(categories)
+const FoodList = () => {
+
+    const [categories, setCategories] = useState([]);
+
+    const getFoods = async () => {
+        const response = await fetch(`${BASE_URL}/categories/with-foods`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const { categories } = await response.json();
+
+        setCategories(categories);
+    };
+
+    useEffect(() => {
+        getFoods()
+    }, []);
 
     return (
         <div className="text-white">
@@ -120,18 +132,3 @@ const FoodList = async () => {
 export default FoodList;
 
 
-// useEffect(() => {
-//     async function fetchData() {
-//         try {
-//             const response = await fetch(`${BASE_URL}/categories/with-foods`, {
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                 },
-//             });
-//         } catch (error) {
-//             console.log(error.message)
-//         }
-//     };
-
-//     fetchData()
-// }, []);

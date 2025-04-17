@@ -13,6 +13,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
+import Link from "next/link";
 
 
 
@@ -68,7 +69,7 @@ export default function LoginPage() {
             </a>
           </div>
           <h6 className="mb-1 text-2xl font-semibold">Login</h6>
-          <p className="mb-6 text-gray-400">Sign up to explore your favorite dishes.</p>
+          <p className="mb-6 text-gray-400">Log in to enjoy your favorite dishes.</p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
@@ -103,8 +104,12 @@ export default function LoginPage() {
             </form>
           </Form>
           <div className="flex gap-3 justify-self-center">
-            <Button className="text-gray-500 font-normal p-0 m-0" variant="link">Already have an account?</Button>
-            <Button className="text-blue-500 font-normal p-0 m-0" variant="link">Log in</Button>
+            <Button className="text-gray-500 font-normal p-0 m-0" variant="link">
+              <Link href="/register">Don't have an account?</Link>
+            </Button>
+            <Button className="text-blue-500 font-normal p-0 m-0" variant="link">
+              <Link href="/register">Sign up</Link>
+            </Button>
           </div>
         </div>
 

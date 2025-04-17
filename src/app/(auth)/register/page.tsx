@@ -12,6 +12,7 @@ import { BASE_URL } from "@/constants";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 
@@ -94,8 +95,12 @@ export default function RegisterPage() {
                         </form>
                     </Form>
                     <div className="flex gap-3 justify-self-center">
-                        <Button className="text-gray-500 font-normal p-0 m-0" variant="link">Already have an account?</Button>
-                        <Button className="text-blue-500 font-normal p-0 m-0" variant="link">Log in</Button>
+                        <Button className="text-gray-500 font-normal p-0 m-0" variant="link">
+                            <Link href="/login">Already have an account?</Link>
+                        </Button>
+                        <Button className="text-blue-500 font-normal p-0 m-0" variant="link">
+                            <Link href="/login">Log in</Link>
+                        </Button>
                     </div>
                 </div>
 
