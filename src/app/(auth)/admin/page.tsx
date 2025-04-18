@@ -170,7 +170,7 @@ export default function AdminPage() {
                                         <div className="flex w-[424px] h-[140px] gap-4 py-3">
                                             <p className="w-[120px] h-[16px] text-[#71717A]">Image</p>
                                             <div className="w-[288px] h-[116px] relative">
-                                                <img src="./finger-food.svg" className="w-[288px] h-[116px] rounded-md object-cover border border-[#E4E4E7]" />
+                                                <input type="file" src="./finger-food.svg" className="w-[288px] h-[116px] rounded-md object-cover border border-[#E4E4E7]" />
                                                 <button className="absolute top-[10px] right-[8px] bg-white rounded-full p-1 hover:text-white hover:bg-red-500">
                                                     <X />
                                                 </button>
