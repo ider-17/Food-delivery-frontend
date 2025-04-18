@@ -2,19 +2,17 @@
 
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/constants";
-import { CircleUserRound, ImageIcon, LayoutDashboard, Pen, Plus, Settings, Truck } from "lucide-react";
+import { CircleUserRound, ImageIcon, LayoutDashboard, Pen, Plus, Settings, Trash, Truck, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
 
 
 type CategoryType = {
@@ -32,7 +30,7 @@ export default function AdminPage() {
 
         const { categories } = await response.json();
 
-        console.log(categories);
+        // console.log(categories);
 
         setCategories(categories);
 
@@ -95,35 +93,33 @@ export default function AdminPage() {
                                 <DialogContent className="w-[460px] h-[592px] p-6">
                                     <DialogHeader>
                                         <DialogTitle>Add new Dish to Appetizers</DialogTitle>
-                                        <DialogDescription>
-                                            <div>
-                                                <div className="flex gap-6 mt-6">
-                                                    <div>
-                                                        <div className="mb-2 font-semibold text-black">Food name</div>
-                                                        <Input placeholder="Type food name..." />
-                                                    </div>
-                                                    <div>
-                                                        <div className="mb-2 font-semibold text-black">Food price</div>
-                                                        <Input placeholder="Enter price..." />
-                                                    </div>
-                                                </div>
-                                                <div className="mt-6 font-semibold text-black">
-                                                    <div className="mb-2 font-semibold text-black">Ingredients</div>
-                                                    <Input placeholder="List ingredients" className="w-[412px] h-[90px]" />
-                                                </div>
-                                                <div className="mt-6 font-semibold text-black">
-                                                    <div className="mb-2 font-semibold text-black">Food image</div>
-                                                    <div className="w-[412px] h-[138px] border border-dashed border-blue-200 rounded-md bg-gray-50 p-4 flex flex-col items-center justify-center text-gray-500">
-                                                        <ImageIcon className="mb-2" size={24} />
-                                                        <div className="text-sm">Choose a file or drag & drop it here</div>
-                                                    </div>
-                                                </div>
-                                                <div className="mt-6 w-[412px] h-[64px] flex justify-end items-end">
-                                                    <Button>Add Dish</Button>
-                                                </div>
-                                            </div>
-                                        </DialogDescription>
                                     </DialogHeader>
+                                    <div>
+                                        <div className="flex gap-6 mt-6">
+                                            <div>
+                                                <div className="mb-2 font-semibold text-black">Food name</div>
+                                                <Input placeholder="Type food name..." />
+                                            </div>
+                                            <div>
+                                                <div className="mb-2 font-semibold text-black">Food price</div>
+                                                <Input placeholder="Enter price..." />
+                                            </div>
+                                        </div>
+                                        <div className="mt-6 font-semibold text-black">
+                                            <div className="mb-2 font-semibold text-black">Ingredients</div>
+                                            <textarea className="w-[412px] h-[90px] border rounded-md py-2 px-3" placeholder="List ingredients"></textarea>
+                                        </div>
+                                        <div className="mt-6 font-semibold text-black">
+                                            <div className="mb-2 font-semibold text-black">Food image</div>
+                                            <div className="w-[412px] h-[138px] border border-dashed border-blue-200 rounded-md bg-gray-50 p-4 flex flex-col items-center justify-center text-gray-500">
+                                                <ImageIcon className="mb-2" size={24} />
+                                                <div className="text-sm">Choose a file or drag & drop it here</div>
+                                            </div>
+                                        </div>
+                                        <div className="mt-6 w-[412px] h-[64px] flex justify-end items-end">
+                                            <Button>Add Dish</Button>
+                                        </div>
+                                    </div>
                                 </DialogContent>
                             </Dialog>
 
@@ -150,38 +146,68 @@ export default function AdminPage() {
 
                                 </div>
 
-                                <DialogContent className="w-[460px] h-[592px] p-6">
+                                <DialogContent className="w-[472px] h-[596px] p-6 items-start flex flex-col">
                                     <DialogHeader>
-                                        <DialogTitle>Add new Dish to Appetizers</DialogTitle>
-                                        <DialogDescription>
-                                            <div>
-                                                <div className="flex gap-6 mt-6">
-                                                    <div>
-                                                        <div className="mb-2 font-semibold text-black">Food name</div>
-                                                        <Input placeholder="Type food name..." />
-                                                    </div>
-                                                    <div>
-                                                        <div className="mb-2 font-semibold text-black">Food price</div>
-                                                        <Input placeholder="Enter price..." />
-                                                    </div>
-                                                </div>
-                                                <div className="mt-6 font-semibold text-black">
-                                                    <div className="mb-2 font-semibold text-black">Ingredients</div>
-                                                    <Input placeholder="List ingredients" className="w-[412px] h-[90px]" />
-                                                </div>
-                                                <div className="mt-6 font-semibold text-black">
-                                                    <div className="mb-2 font-semibold text-black">Food image</div>
-                                                    <div className="w-[412px] h-[138px] border border-dashed border-blue-200 rounded-md bg-gray-50 p-4 flex flex-col items-center justify-center text-gray-500">
-                                                        <ImageIcon className="mb-2" size={24} />
-                                                        <div className="text-sm">Choose a file or drag & drop it here</div>
-                                                    </div>
-                                                </div>
-                                                <div className="mt-6 w-[412px] h-[64px] flex justify-end items-end">
-                                                    <Button>Add Dish</Button>
-                                                </div>
-                                            </div>
-                                        </DialogDescription>
+                                        <DialogTitle>Dishes info</DialogTitle>
                                     </DialogHeader>
+                                    <div>
+                                        <div className="flex w-[424px] h-[60px] gap-4 py-3">
+                                            <p className="w-[120px] h-[16px] text-[#71717A]">Dish name</p>
+                                            <button className="w-[288px] h-[36px] rounded-md py-2 px-3 border border-[#E4E4E7] flex justify-start">Brie Crostini Appetizer</button>
+                                        </div>
+                                        <div className="flex w-[424px] h-[60px] gap-4 py-3">
+                                            <p className="w-[120px] h-[16px] text-[#71717A]">Dish categories</p>
+                                            <button className="w-[288px] h-[36px] rounded-md py-2 px-3 border border-[#E4E4E7] flex justify-start">category</button>
+                                        </div>
+                                        <div className="flex w-[424px] h-[104px] gap-4 py-3">
+                                            <p className="w-[120px] h-[16px] text-[#71717A]">Ingredients</p>
+                                            <textarea className="w-[288px] h-[80px] rounded-md py-2 px-3 border border-[#E4E4E7]" placeholder="Ingredients..."></textarea>
+                                        </div>
+                                        <div className="flex w-[424px] h-[60px] gap-4 py-3">
+                                            <p className="w-[120px] h-[16px] text-[#71717A]">Price</p>
+                                            <button className="w-[288px] h-[36px] rounded-md py-2 px-3 border border-[#E4E4E7] flex justify-start">$12.99</button>
+                                        </div>
+                                        <div className="flex w-[424px] h-[140px] gap-4 py-3">
+                                            <p className="w-[120px] h-[16px] text-[#71717A]">Image</p>
+                                            <div className="w-[288px] h-[116px] relative">
+                                                <img src="./finger-food.svg" className="w-[288px] h-[116px] rounded-md object-cover border border-[#E4E4E7]" />
+                                                <button className="absolute top-[10px] right-[8px] bg-white rounded-full p-1 hover:text-white hover:bg-red-500">
+                                                    <X />
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="w-[424px] h-[64px] mt-3 flex justify-between items-end">
+                                            <button className="border border-red-500 rounded-md py-3 px-4 text-red-500 hover:text-white hover:bg-red-500">
+                                                <Trash size={15} />
+                                            </button>
+                                            <Button>Save changes</Button>
+                                        </div>
+
+                                        {/* <div className="flex gap-6 mt-6">
+                                            <div>
+                                                <div className="mb-2 font-semibold text-black">Food name</div>
+                                                <Input placeholder="Type food name..." />
+                                            </div>
+                                            <div>
+                                                <div className="mb-2 font-semibold text-black">Food price</div>
+                                                <textarea className="w-[412px] h-[90px] border rounded-md py-2 px-3" placeholder="List ingredients"></textarea>
+                                            </div>
+                                        </div>
+                                        <div className="mt-6 font-semibold text-black">
+                                            <div className="mb-2 font-semibold text-black">Ingredients</div>
+                                            <Input placeholder="List ingredients" className="w-[412px] h-[90px]" />
+                                        </div>
+                                        <div className="mt-6 font-semibold text-black">
+                                            <div className="mb-2 font-semibold text-black">Food image</div>
+                                            <div className="w-[412px] h-[138px] border border-dashed border-blue-200 rounded-md bg-gray-50 p-4 flex flex-col items-center justify-center text-gray-500">
+                                                <ImageIcon className="mb-2" size={24} />
+                                                <div className="text-sm">Choose a file or drag & drop it here</div>
+                                            </div>
+                                        </div>
+                                        <div className="mt-6 w-[412px] h-[64px] flex justify-end items-end">
+                                            <Button>Add Dish</Button>
+                                        </div> */}
+                                    </div>
                                 </DialogContent>
                             </Dialog>
 

@@ -2,7 +2,6 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
 import FoodList from "./_components/FoodList";
 
