@@ -89,7 +89,6 @@ export default function RegisterPage() {
                                 )}
                             />
 
-                            <Button className="font-normal p-0 m-0" variant="link" type="button">Forgot password ?</Button>
                             {error && <p className="text-red-500">{error}</p>}
                             <Button className="bg-black text-white w-full mt-6" variant="outline" type="submit">Let's Go</Button>
                         </form>
