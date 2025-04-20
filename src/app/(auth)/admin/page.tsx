@@ -2,9 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/constants";
-import { CircleUserRound, ImageIcon, LayoutDashboard, Pen, Plus, Settings, Trash, Truck, X } from "lucide-react";
+import { CircleUserRound, LayoutDashboard, Pen, Plus, Settings, Trash, Truck, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import {
     Dialog,
     DialogContent,
@@ -12,12 +18,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
 
 
 type CategoryType = {
@@ -49,13 +49,15 @@ export default function AdminPage() {
     });
 
     const onSubmit = async (val) => {
-        const token = localStorage.getItem("token");
 
-        const food = await axios.post(`${BASE_URL}/foods`, val, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
+        console.log(file)
+        // const token = localStorage.getItem("token");
+
+        // const food = await axios.post(`${BASE_URL}/foods`, val, {
+        //     headers: {
+        //         Authorization: `Bearer ${token}`,
+        //     },
+        // });
     };
 
     const categoryFetch = async () => {
