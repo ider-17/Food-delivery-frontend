@@ -177,19 +177,7 @@ export default function AdminPage() {
                                                         )}
                                                     />
 
-                                                    <FormField
-                                                        control={form.control}
-                                                        name="name"
-                                                        render={({ field }) => (
-                                                            <FormItem>
-                                                                <FormLabel>Food image</FormLabel>
-                                                                <FormControl>
-                                                                    <Input className="w-[412px] h-[138px] flex justify-center items-center" type="file" {...field} />
-                                                                </FormControl>
-                                                                <FormMessage />
-                                                            </FormItem>
-                                                        )}
-                                                    />
+                                                    <Input onChange={(event) => setFile(event.target.files)} className="w-[412px] h-[138px] flex justify-center items-center" type="file" />
                                                 </div>
                                             </form>
                                         </Form>
